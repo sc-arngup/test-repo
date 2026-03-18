@@ -1,11 +1,11 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable } from '@nestjs/common';
+import { HelperService } from './helper.service';
 
 @Injectable()
 export class TestLibraryService {
+  constructor(private helper: HelperService) {}
 
-    hello(): void {
-        console.log('Hello from NestJS library!');
-        console.log('ENV VALUE:', process.env.HOSTNAME);
-    }
-
+  hello(): string {
+    return this.helper.getMessage();
+  }
 }
